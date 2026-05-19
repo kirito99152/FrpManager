@@ -1,0 +1,15 @@
+[Unit]
+Description=FrpManager Dedicated FRPS
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/FrpManager
+ExecStart=/opt/frp/frps -c /root/FrpManager/configs/frps.yaml
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
